@@ -8,12 +8,17 @@
 
   <style>
     :root{
-      --bg:#3a0f14;        /* vinho escuro */
+      /* ===== TEMA VERDE OLIVA ===== */
+      --bg:#182015;            /* oliva bem escuro */
+      --bg2:#202a1c;           /* variação */
       --card:#ffffff0d;
-      --text:#f7f3e8;
-      --muted:#f7f3e8cc;
+      --text:#f5f3ea;          /* off-white */
+      --muted:#f5f3eacc;
+
+      /* dourado discreto (combina com o banner) */
       --gold:#d7b46a;
       --gold2:#f0dfb0;
+
       --stroke:#ffffff1a;
       --shadow: 0 14px 40px rgba(0,0,0,.35);
       --radius: 18px;
@@ -21,7 +26,15 @@
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:radial-gradient(1200px 500px at 70% -10%, rgba(215,180,106,.18), transparent 55%), var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;}
+    html,body{
+      margin:0;padding:0;
+      background:
+        radial-gradient(1200px 520px at 70% -10%, rgba(215,180,106,.16), transparent 55%),
+        radial-gradient(900px 520px at 20% 0%, rgba(148, 165, 92, .16), transparent 55%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    }
     a{color:inherit}
     .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
 
@@ -29,7 +42,7 @@
     .topbar{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background:linear-gradient(to bottom, rgba(58,15,20,.85), rgba(58,15,20,.55));
+      background:linear-gradient(to bottom, rgba(24,32,21,.88), rgba(24,32,21,.55));
       border-bottom:1px solid var(--stroke);
     }
     .topbar-inner{
@@ -46,7 +59,7 @@
     .brand-dot{
       width:10px;height:10px;border-radius:50%;
       background:linear-gradient(135deg,var(--gold),var(--gold2));
-      box-shadow:0 0 0 3px rgba(215,180,106,.15);
+      box-shadow:0 0 0 3px rgba(215,180,106,.12);
     }
     .nav{
       display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
@@ -60,9 +73,8 @@
       border:1px solid transparent;
     }
     .nav a:hover{border-color:var(--stroke); color:var(--text); background:rgba(255,255,255,.06)}
-    .cta{
-      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
-    }
+    .cta{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+
     .btn{
       border:1px solid var(--stroke);
       background:rgba(255,255,255,.06);
@@ -78,10 +90,11 @@
     .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.22)}
     .btn.primary{
       background:linear-gradient(135deg, rgba(215,180,106,.95), rgba(240,223,176,.95));
-      color:#2b0b0f;
+      color:#141a12;
       border-color:transparent;
     }
     .btn.primary:hover{background:linear-gradient(135deg, rgba(215,180,106,1), rgba(240,223,176,1))}
+
     .pill{
       display:inline-flex; align-items:center; gap:8px;
       padding:8px 12px;
@@ -104,16 +117,19 @@
       .hero-grid{grid-template-columns:1fr}
       .nav{display:none}
     }
+
     .banner{
       border-radius: var(--radius);
       overflow:hidden;
       border:1px solid var(--stroke);
       box-shadow: var(--shadow);
       min-height: 320px;
+      /* leve tonalidade oliva por cima do banner */
       background:
-        linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.05)),
+        linear-gradient(135deg, rgba(24,32,21,.20), rgba(0,0,0,.06)),
         url("banner.png") center / cover no-repeat;
     }
+
     .hero-card{
       border-radius: var(--radius);
       border:1px solid var(--stroke);
@@ -132,6 +148,7 @@
     }
     .hero p{margin:0; color:var(--muted); font-size:15px; line-height:1.55}
     .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+
     .checklist{display:grid; gap:10px; margin-top:6px}
     .check{
       display:flex; gap:10px; align-items:flex-start;
@@ -174,7 +191,7 @@
     .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
     .tag{
       display:inline-flex; align-items:center; gap:8px;
-      color:rgba(43,11,15,.92);
+      color:#141a12;
       font-weight:750;
       background:linear-gradient(135deg, rgba(215,180,106,.95), rgba(240,223,176,.95));
       padding:6px 10px;
@@ -218,7 +235,7 @@
       font-size:14px;
     }
     textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus{border-color:rgba(240,223,176,.55); box-shadow:0 0 0 4px rgba(215,180,106,.12)}
+    input:focus, textarea:focus{border-color:rgba(240,223,176,.55); box-shadow:0 0 0 4px rgba(215,180,106,.10)}
 
     .note{
       color:var(--muted);
@@ -263,7 +280,6 @@
 </head>
 
 <body>
-  <!-- Topbar -->
   <div class="topbar">
     <div class="container">
       <div class="topbar-inner">
@@ -287,7 +303,6 @@
     </div>
   </div>
 
-  <!-- Hero -->
   <header class="hero" id="inicio">
     <div class="container">
       <div class="hero-grid">
@@ -296,9 +311,7 @@
         <div class="hero-card">
           <div class="pill">Atendimento rápido • Humanizado • 100% confidencial</div>
           <h1>Advocacia e Consultoria Jurídica com clareza, estratégia e segurança.</h1>
-          <p>
-            Orientação objetiva, linguagem simples e condução responsável do seu caso — do primeiro contato até a solução.
-          </p>
+          <p>Orientação objetiva, linguagem simples e condução responsável do seu caso — do primeiro contato até a solução.</p>
 
           <div class="hero-actions">
             <a class="btn primary" id="btnWhatsHero" href="#">Falar no WhatsApp</a>
@@ -315,7 +328,6 @@
     </div>
   </header>
 
-  <!-- Areas -->
   <section id="atuacao">
     <div class="container">
       <div class="section-title">
@@ -347,7 +359,6 @@
     </div>
   </section>
 
-  <!-- How it works -->
   <section id="como-funciona">
     <div class="container">
       <div class="section-title">
@@ -374,7 +385,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq">
     <div class="container">
       <div class="section-title">
@@ -401,7 +411,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contato">
     <div class="container">
       <div class="section-title">
@@ -424,18 +433,13 @@
           </div>
 
           <p class="note" style="margin-top:14px">
-            <b>Dica de automação:</b> o formulário ao lado pode enviar leads direto para planilha (Google Sheets),
-            CRM, e-mail e WhatsApp via Zapier/Make.
+            <b>Dica de automação:</b> o formulário pode enviar leads direto para planilha/CRM via Zapier/Make.
           </p>
         </div>
 
         <div class="card">
           <h3>Formulário</h3>
 
-          <!--
-            OPÇÃO A (simples): mailto (sem automação) -> troque action="#" e use mailto.
-            OPÇÃO B (automação): use um endpoint (Zapier/Make/Webhook) e deixe como está.
-          -->
           <form id="leadForm">
             <div class="field">
               <label for="nome">Nome</label>
@@ -470,7 +474,7 @@
     <div class="container">
       <div class="footer-inner">
         <div>© <span id="year"></span> Carla Fermin — Advocacia e Consultoria Jurídica</div>
-        <div>Desenvolvido como landing page • Política de privacidade (adicione aqui)</div>
+        <div>Landing page • Política de privacidade (adicione aqui)</div>
       </div>
     </div>
   </footer>
@@ -482,36 +486,26 @@
 
   <script>
     // ========= CONFIGURAÇÕES =========
-    // Troque o WhatsApp abaixo para o número correto no formato: 55DDDNUMERO (ex.: 5543999999999)
+    // Troque para o WhatsApp correto (55 + DDD + número)
     const WHATS_NUMBER = "5500000000000";
-
-    // Mensagem padrão
     const WHATS_MESSAGE = "Olá, Carla! Vim pelo site e gostaria de atendimento. Meu caso é sobre: ";
 
-    // Automação do formulário:
-    // 1) Se você tiver Zapier/Make/Webhook, cole a URL aqui:
-    //    Ex.: https://hooks.zapier.com/hooks/catch/XXXX/YYYY
-    // 2) Se deixar vazio, o site só mostrará “enviado” (modo demonstração).
+    // Cole a URL do seu webhook (Zapier/Make) para automatizar o formulário
     const WEBHOOK_URL = "";
 
-    // ========= WHATSAPP LINKS =========
     function makeWhatsLink(extraText=""){
       const text = encodeURIComponent(WHATS_MESSAGE + extraText);
       return `https://wa.me/${WHATS_NUMBER}?text=${text}`;
     }
 
-    const ctaWhats = document.getElementById("ctaWhats");
-    const btnWhatsHero = document.getElementById("btnWhatsHero");
-    const btnWhatsContact = document.getElementById("btnWhatsContact");
-    const floatWhats = document.getElementById("floatWhats");
-
-    [ctaWhats, btnWhatsHero, btnWhatsContact, floatWhats].forEach(el=>{
+    const ids = ["ctaWhats","btnWhatsHero","btnWhatsContact","floatWhats"];
+    ids.forEach(id=>{
+      const el = document.getElementById(id);
       el.href = makeWhatsLink("");
       el.target = "_blank";
       el.rel = "noopener";
     });
 
-    // ========= FORM =========
     const form = document.getElementById("leadForm");
     const statusEl = document.getElementById("formStatus");
 
@@ -530,9 +524,7 @@
 
       try{
         if(!WEBHOOK_URL){
-          // modo demonstração
           statusEl.textContent = "Enviado! Em instantes você será atendido(a).";
-          // já abre WhatsApp com o assunto para agilizar
           window.open(makeWhatsLink(payload.assunto || "atendimento"), "_blank", "noopener");
           form.reset();
           return;
@@ -552,7 +544,6 @@
       }
     });
 
-    // year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
