@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Carla Fermin - Advocacia e Consultoria Jurídica. Atendimento humanizado, rápido e seguro. Fale no WhatsApp." />
+  <title>Carla Fermin | Advocacia e Consultoria Jurídica</title>
+
+  <style>
+    :root{
+      --bg:#3a0f14;        /* vinho escuro */
+      --card:#ffffff0d;
+      --text:#f7f3e8;
+      --muted:#f7f3e8cc;
+      --gold:#d7b46a;
+      --gold2:#f0dfb0;
+      --stroke:#ffffff1a;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 500px at 70% -10%, rgba(215,180,106,.18), transparent 55%), var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;}
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:linear-gradient(to bottom, rgba(58,15,20,.85), rgba(58,15,20,.55));
+      border-bottom:1px solid var(--stroke);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand-dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      box-shadow:0 0 0 3px rgba(215,180,106,.15);
+    }
+    .nav{
+      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
+      font-size:14px;
+    }
+    .nav a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{border-color:var(--stroke); color:var(--text); background:rgba(255,255,255,.06)}
+    .cta{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .btn{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:650;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      transition:.2s transform, .2s background, .2s border-color;
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.22)}
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(215,180,106,.95), rgba(240,223,176,.95));
+      color:#2b0b0f;
+      border-color:transparent;
+    }
+    .btn.primary:hover{background:linear-gradient(135deg, rgba(215,180,106,1), rgba(240,223,176,1))}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      color:var(--muted);
+      background:rgba(255,255,255,.05);
+      font-size:13px;
+    }
+
+    /* Hero */
+    .hero{padding:28px 0 18px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero-grid{grid-template-columns:1fr}
+      .nav{display:none}
+    }
+    .banner{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      min-height: 320px;
+      background:
+        linear-gradient(135deg, rgba(0,0,0,.25), rgba(0,0,0,.05)),
+        url("banner.png") center / cover no-repeat;
+    }
+    .hero-card{
+      border-radius: var(--radius);
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .hero h1{
+      margin:0;
+      font-size:36px;
+      line-height:1.05;
+      letter-spacing:-.5px;
+    }
+    .hero p{margin:0; color:var(--muted); font-size:15px; line-height:1.55}
+    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .checklist{display:grid; gap:10px; margin-top:6px}
+    .check{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background:rgba(0,0,0,.10);
+      color:var(--muted);
+      font-size:14px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      margin-top:4px; flex:0 0 auto;
+    }
+
+    /* Sections */
+    section{padding:34px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin-bottom:16px;
+    }
+    h2{margin:0; font-size:22px; letter-spacing:-.2px}
+    .sub{margin:0; color:var(--muted); font-size:14px}
+
+    .grid-3{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 920px){ .grid-3{grid-template-columns:1fr} }
+
+    .card{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 8px 0; font-size:16px}
+    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      color:rgba(43,11,15,.92);
+      font-weight:750;
+      background:linear-gradient(135deg, rgba(215,180,106,.95), rgba(240,223,176,.95));
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      margin-bottom:10px;
+    }
+
+    /* FAQ */
+    details{
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      border-radius: 14px;
+      padding:12px 14px;
+    }
+    details + details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700}
+    details p{margin:10px 0 0 0; color:var(--muted); font-size:14px; line-height:1.55}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    @media (max-width: 920px){ .contact{grid-template-columns:1fr} }
+
+    .field{
+      display:flex; flex-direction:column; gap:6px; margin-bottom:12px;
+      font-size:13px; color:var(--muted);
+    }
+    input, textarea{
+      width:100%;
+      border:1px solid var(--stroke);
+      background:rgba(0,0,0,.12);
+      color:var(--text);
+      border-radius:12px;
+      padding:12px 12px;
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:120px; resize:vertical}
+    input:focus, textarea:focus{border-color:rgba(240,223,176,.55); box-shadow:0 0 0 4px rgba(215,180,106,.12)}
+
+    .note{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    /* Footer */
+    footer{
+      padding:24px 0 90px;
+      border-top:1px solid var(--stroke);
+      background:rgba(0,0,0,.10);
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* Floating WhatsApp */
+    .float-wa{
+      position:fixed;
+      right:16px; bottom:16px;
+      z-index:60;
+      text-decoration:none;
+      padding:12px 14px;
+      border-radius:999px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(255,255,255,.22);
+      background:linear-gradient(135deg, #25D366, #15b956);
+      color:#06260f;
+      font-weight:800;
+      display:flex; align-items:center; gap:10px;
+    }
+    .float-wa span{color:#06260f}
+    .wa-ico{
+      width:22px;height:22px; display:inline-block;
+      border-radius:6px; background:rgba(6,38,15,.15);
+      display:grid; place-items:center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <a class="brand" href="#inicio" aria-label="Ir ao início">
+          <span class="brand-dot"></span>
+          <span>Carla Fermin</span>
+        </a>
+
+        <nav class="nav" aria-label="Navegação">
+          <a href="#atuacao">Atuação</a>
+          <a href="#como-funciona">Como funciona</a>
+          <a href="#faq">Dúvidas</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="#contato">Agendar</a>
+          <a class="btn primary" id="ctaWhats" href="#">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="banner" role="img" aria-label="Banner Carla Fermin Advocacia e Consultoria Jurídica"></div>
+
+        <div class="hero-card">
+          <div class="pill">Atendimento rápido • Humanizado • 100% confidencial</div>
+          <h1>Advocacia e Consultoria Jurídica com clareza, estratégia e segurança.</h1>
+          <p>
+            Orientação objetiva, linguagem simples e condução responsável do seu caso — do primeiro contato até a solução.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" id="btnWhatsHero" href="#">Falar no WhatsApp</a>
+            <a class="btn" href="#atuacao">Ver áreas de atuação</a>
+          </div>
+
+          <div class="checklist">
+            <div class="check"><span class="dot"></span><div><b>Triagem rápida</b><br/>Você envia o básico e já recebe direção do próximo passo.</div></div>
+            <div class="check"><span class="dot"></span><div><b>Documentos organizados</b><br/>Checklist e orientação para evitar idas e vindas.</div></div>
+            <div class="check"><span class="dot"></span><div><b>Acompanhamento</b><br/>Atualizações claras sobre andamento e prazos.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Areas -->
+  <section id="atuacao">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Áreas de atuação</h2>
+          <p class="sub">Ajuste os cards abaixo conforme o foco do escritório.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="tag">Direito de Sucessões</div>
+          <h3>Inventário e Partilha</h3>
+          <p>Orientação completa para inventário judicial ou extrajudicial, organização de documentos e condução estratégica do procedimento.</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">Direito de Família</div>
+          <h3>Divórcio, Guarda e Alimentos</h3>
+          <p>Atuação com foco em solução, prevenção de conflitos e proteção do que é mais importante para você e sua família.</p>
+        </div>
+
+        <div class="card">
+          <div class="tag">Consultoria</div>
+          <h3>Contratos e Pareceres</h3>
+          <p>Análise e elaboração de documentos com linguagem clara, riscos mapeados e recomendações objetivas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Como funciona</h2>
+          <p class="sub">Processo simples para acelerar o atendimento e organizar seu caso.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>1) Primeiro contato</h3>
+          <p>Você chama no WhatsApp e descreve brevemente sua situação. Se preferir, usa o formulário.</p>
+        </div>
+        <div class="card">
+          <h3>2) Triagem e checklist</h3>
+          <p>Você recebe perguntas objetivas e uma lista do que enviar (documentos, datas, nomes, valores).</p>
+        </div>
+        <div class="card">
+          <h3>3) Direcionamento</h3>
+          <p>Com tudo alinhado, você recebe orientação do caminho adequado e próximos passos (prazo, custo, estratégia).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Dúvidas frequentes</h2>
+          <p class="sub">Respostas rápidas para ajudar você a decidir com segurança.</p>
+        </div>
+      </div>
+
+      <details>
+        <summary>O atendimento pode ser online?</summary>
+        <p>Sim. O primeiro atendimento pode ser online, com envio de documentos digitalizados e orientações por mensagem ou chamada.</p>
+      </details>
+
+      <details>
+        <summary>Quais documentos preciso para inventário?</summary>
+        <p>Depende do caso. Em geral: documentos pessoais, certidões, relação de bens, dívidas e informações dos herdeiros. Você recebe um checklist completo após a triagem.</p>
+      </details>
+
+      <details>
+        <summary>Quanto tempo demora?</summary>
+        <p>Varia conforme a via escolhida (judicial/extrajudicial), existência de consenso e documentação. Na triagem, você recebe uma estimativa realista.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contato">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Contato</h2>
+          <p class="sub">Envie sua mensagem e eu retorno o mais rápido possível.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h3>Falar agora</h3>
+          <p class="note" style="margin-top:6px">
+            Clique no WhatsApp e já envie uma mensagem pronta. Você pode alterar o texto antes de enviar.
+          </p>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+            <a class="btn primary" id="btnWhatsContact" href="#">WhatsApp</a>
+            <a class="btn" href="mailto:contato@seudominio.com?subject=Contato%20-%20Carla%20Fermin">E-mail</a>
+          </div>
+
+          <p class="note" style="margin-top:14px">
+            <b>Dica de automação:</b> o formulário ao lado pode enviar leads direto para planilha (Google Sheets),
+            CRM, e-mail e WhatsApp via Zapier/Make.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Formulário</h3>
+
+          <!--
+            OPÇÃO A (simples): mailto (sem automação) -> troque action="#" e use mailto.
+            OPÇÃO B (automação): use um endpoint (Zapier/Make/Webhook) e deixe como está.
+          -->
+          <form id="leadForm">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" placeholder="Seu nome" required />
+            </div>
+
+            <div class="field">
+              <label for="whats">WhatsApp</label>
+              <input id="whats" name="whats" placeholder="(DDD) 9XXXX-XXXX" required />
+            </div>
+
+            <div class="field">
+              <label for="assunto">Assunto</label>
+              <input id="assunto" name="assunto" placeholder="Ex.: Inventário / Divórcio / Contrato" />
+            </div>
+
+            <div class="field">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Conte um resumo do seu caso (datas, cidade, situação)."></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">Enviar</button>
+
+            <p class="note" id="formStatus" style="margin-top:10px"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© <span id="year"></span> Carla Fermin — Advocacia e Consultoria Jurídica</div>
+        <div>Desenvolvido como landing page • Política de privacidade (adicione aqui)</div>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-wa" id="floatWhats" href="#" aria-label="Abrir WhatsApp">
+    <span class="wa-ico">💬</span>
+    <span>WhatsApp</span>
+  </a>
+
+  <script>
+    // ========= CONFIGURAÇÕES =========
+    // Troque o WhatsApp abaixo para o número correto no formato: 55DDDNUMERO (ex.: 5543999999999)
+    const WHATS_NUMBER = "5500000000000";
+
+    // Mensagem padrão
+    const WHATS_MESSAGE = "Olá, Carla! Vim pelo site e gostaria de atendimento. Meu caso é sobre: ";
+
+    // Automação do formulário:
+    // 1) Se você tiver Zapier/Make/Webhook, cole a URL aqui:
+    //    Ex.: https://hooks.zapier.com/hooks/catch/XXXX/YYYY
+    // 2) Se deixar vazio, o site só mostrará “enviado” (modo demonstração).
+    const WEBHOOK_URL = "";
+
+    // ========= WHATSAPP LINKS =========
+    function makeWhatsLink(extraText=""){
+      const text = encodeURIComponent(WHATS_MESSAGE + extraText);
+      return `https://wa.me/${WHATS_NUMBER}?text=${text}`;
+    }
+
+    const ctaWhats = document.getElementById("ctaWhats");
+    const btnWhatsHero = document.getElementById("btnWhatsHero");
+    const btnWhatsContact = document.getElementById("btnWhatsContact");
+    const floatWhats = document.getElementById("floatWhats");
+
+    [ctaWhats, btnWhatsHero, btnWhatsContact, floatWhats].forEach(el=>{
+      el.href = makeWhatsLink("");
+      el.target = "_blank";
+      el.rel = "noopener";
+    });
+
+    // ========= FORM =========
+    const form = document.getElementById("leadForm");
+    const statusEl = document.getElementById("formStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "Enviando…";
+
+      const payload = {
+        nome: form.nome.value.trim(),
+        whats: form.whats.value.trim(),
+        assunto: form.assunto.value.trim(),
+        mensagem: form.mensagem.value.trim(),
+        origem: "site",
+        timestamp: new Date().toISOString()
+      };
+
+      try{
+        if(!WEBHOOK_URL){
+          // modo demonstração
+          statusEl.textContent = "Enviado! Em instantes você será atendido(a).";
+          // já abre WhatsApp com o assunto para agilizar
+          window.open(makeWhatsLink(payload.assunto || "atendimento"), "_blank", "noopener");
+          form.reset();
+          return;
+        }
+
+        const res = await fetch(WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if(!res.ok) throw new Error("Falha no envio");
+        statusEl.textContent = "Enviado com sucesso! Vou retornar o quanto antes.";
+        form.reset();
+      }catch(err){
+        statusEl.textContent = "Não foi possível enviar agora. Clique em WhatsApp para falar direto.";
+      }
+    });
+
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
