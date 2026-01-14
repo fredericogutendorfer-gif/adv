@@ -1,550 +1,489 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Carla Fermin - Advocacia e Consultoria Jurídica. Atendimento humanizado, rápido e seguro. Fale no WhatsApp." />
-  <title>Carla Fermin | Advocacia e Consultoria Jurídica</title>
-
+<html lang="pt-BR" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page Moderna</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&amp;family=Montserrat:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
   <style>
-    :root{
-      /* ===== TEMA VERDE OLIVA ===== */
-      --bg:#182015;            /* oliva bem escuro */
-      --bg2:#202a1c;           /* variação */
-      --card:#ffffff0d;
-      --text:#f5f3ea;          /* off-white */
-      --muted:#f5f3eacc;
-
-      /* dourado discreto (combina com o banner) */
-      --gold:#d7b46a;
-      --gold2:#f0dfb0;
-
-      --stroke:#ffffff1a;
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1120px;
+    body {
+      box-sizing: border-box;
     }
-
-    *{box-sizing:border-box}
-    html,body{
-      margin:0;padding:0;
-      background:
-        radial-gradient(1200px 520px at 70% -10%, rgba(215,180,106,.16), transparent 55%),
-        radial-gradient(900px 520px at 20% 0%, rgba(148, 165, 92, .16), transparent 55%),
-        linear-gradient(180deg, var(--bg2), var(--bg));
-      color:var(--text);
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+    
+    * {
+      font-family: 'Crimson Text', Georgia, serif;
     }
-    a{color:inherit}
-    .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
-
-    /* Topbar */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background:linear-gradient(to bottom, rgba(24,32,21,.88), rgba(24,32,21,.55));
-      border-bottom:1px solid var(--stroke);
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
-    .topbar-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
+    
+    .feature-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .brand{
-      display:flex; align-items:center; gap:10px;
-      text-decoration:none;
-      font-weight:700;
-      letter-spacing:.2px;
+    
+    .feature-card:hover {
+      transform: translateY(-8px);
     }
-    .brand-dot{
-      width:10px;height:10px;border-radius:50%;
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      box-shadow:0 0 0 3px rgba(215,180,106,.12);
+    
+    .testimonial-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .nav{
-      display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end;
-      font-size:14px;
+    
+    .testimonial-card:hover {
+      transform: translateY(-8px);
     }
-    .nav a{
-      text-decoration:none;
-      color:var(--muted);
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid transparent;
+    
+    .btn-primary {
+      transition: all 0.3s ease;
     }
-    .nav a:hover{border-color:var(--stroke); color:var(--text); background:rgba(255,255,255,.06)}
-    .cta{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
-
-    .btn{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      color:var(--text);
-      padding:10px 14px;
-      border-radius:999px;
-      font-weight:650;
-      text-decoration:none;
-      display:inline-flex; align-items:center; gap:10px;
-      transition:.2s transform, .2s background, .2s border-color;
-      cursor:pointer;
+    
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
     }
-    .btn:hover{transform:translateY(-1px); background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.22)}
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(215,180,106,.95), rgba(240,223,176,.95));
-      color:#141a12;
-      border-color:transparent;
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
     }
-    .btn.primary:hover{background:linear-gradient(135deg, rgba(215,180,106,1), rgba(240,223,176,1))}
-
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 12px;
-      border:1px solid var(--stroke);
-      border-radius:999px;
-      color:var(--muted);
-      background:rgba(255,255,255,.05);
-      font-size:13px;
-    }
-
-    /* Hero */
-    .hero{padding:28px 0 18px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      .nav{display:none}
-    }
-
-    .banner{
-      border-radius: var(--radius);
-      overflow:hidden;
-      border:1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      min-height: 320px;
-      /* leve tonalidade oliva por cima do banner */
-      background:
-        linear-gradient(135deg, rgba(24,32,21,.20), rgba(0,0,0,.06)),
-        url("banner.png") center / cover no-repeat;
-    }
-
-    .hero-card{
-      border-radius: var(--radius);
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:14px;
-    }
-    .hero h1{
-      margin:0;
-      font-size:36px;
-      line-height:1.05;
-      letter-spacing:-.5px;
-    }
-    .hero p{margin:0; color:var(--muted); font-size:15px; line-height:1.55}
-    .hero-actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
-
-    .checklist{display:grid; gap:10px; margin-top:6px}
-    .check{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.10);
-      color:var(--muted);
-      font-size:14px;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:50%;
-      background:linear-gradient(135deg,var(--gold),var(--gold2));
-      margin-top:4px; flex:0 0 auto;
-    }
-
-    /* Sections */
-    section{padding:34px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
-      margin-bottom:16px;
-    }
-    h2{margin:0; font-size:22px; letter-spacing:-.2px}
-    .sub{margin:0; color:var(--muted); font-size:14px}
-
-    .grid-3{
-      display:grid; gap:14px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-    @media (max-width: 920px){ .grid-3{grid-template-columns:1fr} }
-
-    .card{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 10px 26px rgba(0,0,0,.25);
-    }
-    .card h3{margin:0 0 8px 0; font-size:16px}
-    .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.55}
-    .tag{
-      display:inline-flex; align-items:center; gap:8px;
-      color:#141a12;
-      font-weight:750;
-      background:linear-gradient(135deg, rgba(215,180,106,.95), rgba(240,223,176,.95));
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      margin-bottom:10px;
-    }
-
-    /* FAQ */
-    details{
-      border:1px solid var(--stroke);
-      background:rgba(255,255,255,.06);
-      border-radius: 14px;
-      padding:12px 14px;
-    }
-    details + details{margin-top:10px}
-    summary{cursor:pointer; font-weight:700}
-    details p{margin:10px 0 0 0; color:var(--muted); font-size:14px; line-height:1.55}
-
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:start;
-    }
-    @media (max-width: 920px){ .contact{grid-template-columns:1fr} }
-
-    .field{
-      display:flex; flex-direction:column; gap:6px; margin-bottom:12px;
-      font-size:13px; color:var(--muted);
-    }
-    input, textarea{
-      width:100%;
-      border:1px solid var(--stroke);
-      background:rgba(0,0,0,.12);
-      color:var(--text);
-      border-radius:12px;
-      padding:12px 12px;
-      outline:none;
-      font-size:14px;
-    }
-    textarea{min-height:120px; resize:vertical}
-    input:focus, textarea:focus{border-color:rgba(240,223,176,.55); box-shadow:0 0 0 4px rgba(215,180,106,.10)}
-
-    .note{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.55;
-    }
-
-    /* Footer */
-    footer{
-      padding:24px 0 90px;
-      border-top:1px solid var(--stroke);
-      background:rgba(0,0,0,.10);
-    }
-    .footer-inner{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      color:var(--muted);
-      font-size:13px;
-    }
-
-    /* Floating WhatsApp */
-    .float-wa{
-      position:fixed;
-      right:16px; bottom:16px;
-      z-index:60;
-      text-decoration:none;
-      padding:12px 14px;
-      border-radius:999px;
-      box-shadow: var(--shadow);
-      border:1px solid rgba(255,255,255,.22);
-      background:linear-gradient(135deg, #25D366, #15b956);
-      color:#06260f;
-      font-weight:800;
-      display:flex; align-items:center; gap:10px;
-    }
-    .float-wa span{color:#06260f}
-    .wa-ico{
-      width:22px;height:22px; display:inline-block;
-      border-radius:6px; background:rgba(6,38,15,.15);
-      display:grid; place-items:center;
+    
+    .floating {
+      animation: float 6s ease-in-out infinite;
     }
   </style>
-</head>
-
-<body>
-  <div class="topbar">
-    <div class="container">
-      <div class="topbar-inner">
-        <a class="brand" href="#inicio" aria-label="Ir ao início">
-          <span class="brand-dot"></span>
-          <span>Carla Fermin</span>
-        </a>
-
-        <nav class="nav" aria-label="Navegação">
-          <a href="#atuacao">Atuação</a>
-          <a href="#como-funciona">Como funciona</a>
-          <a href="#faq">Dúvidas</a>
-          <a href="#contato">Contato</a>
-        </nav>
-
-        <div class="cta">
-          <a class="btn" href="#contato">Agendar</a>
-          <a class="btn primary" id="ctaWhats" href="#">WhatsApp</a>
-        </div>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app" class="w-full h-full overflow-auto"><!-- Header -->
+   <header class="w-full py-4 px-6 bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4"><!-- Logo -->
+     <div class="flex items-center gap-3">
+      <svg class="w-10 h-10" viewbox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="17" y="5" width="6" height="30" rx="2" fill="#1a2332" /> <circle cx="20" cy="33" r="4" fill="#1a2332" /> <line x1="10" y1="12" x2="30" y2="12" stroke="#d4af37" stroke-width="2" /> <path d="M10 12 L7 18 L13 18 Z" fill="#d4af37" /> <path d="M30 12 L27 18 L33 18 Z" fill="#d4af37" /> <line x1="10" y1="12" x2="10" y2="9" stroke="#d4af37" stroke-width="1.5" /> <line x1="30" y1="12" x2="30" y2="9" stroke="#d4af37" stroke-width="1.5" />
+      </svg>
+      <h1 id="logo-text" class="text-2xl font-bold"></h1>
+     </div><!-- Navigation & Contact -->
+     <nav class="flex flex-wrap items-center gap-6"><a href="#hero" class="nav-link hover:opacity-70 transition-opacity">Início</a> <a href="#areas" class="nav-link hover:opacity-70 transition-opacity">Áreas de Atuação</a> <a href="#sobre" class="nav-link hover:opacity-70 transition-opacity">Sobre</a>
+      <div class="flex items-center gap-4 ml-4 pl-4 border-l border-gray-300"><a id="phone-link" href="#" class="flex items-center gap-2 hover:opacity-70 transition-opacity">
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg><span id="phone-display" class="text-sm font-semibold"></span> </a>
       </div>
+     </nav>
     </div>
+   </header><!-- Hero Section -->
+   <section id="hero" class="gradient-bg w-full min-h-[600px] flex items-center justify-center px-6 py-20">
+    <div class="max-w-4xl mx-auto text-center">
+     <div class="floating mb-8">
+      <svg class="w-24 h-24 mx-auto" viewbox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="white" opacity="0.1" /> <circle cx="50" cy="50" r="35" fill="white" opacity="0.15" /> <!-- Balança da Justiça --> <rect x="47" y="30" width="6" height="45" fill="white" rx="3" /> <circle cx="50" cy="72" r="8" fill="white" /> <!-- Pratos da balança --> <line x1="30" y1="38" x2="70" y2="38" stroke="white" stroke-width="3" /> <path d="M30 38 L25 48 L35 48 Z" fill="white" /> <path d="M70 38 L65 48 L75 48 Z" fill="white" /> <line x1="30" y1="38" x2="30" y2="33" stroke="white" stroke-width="2" /> <line x1="70" y1="38" x2="70" y2="33" stroke="white" stroke-width="2" />
+      </svg>
+     </div>
+     <h1 id="hero-title" class="text-white mb-6"></h1>
+     <p id="hero-subtitle" class="text-white mb-10 opacity-90"></p><button id="cta-button" class="btn-primary px-10 py-4 rounded-full font-semibold text-lg shadow-xl"> </button>
+    </div>
+   </section><!-- Benefits Section -->
+   <section id="areas" class="w-full px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+     <h2 id="benefits-title" class="text-center mb-16"></h2>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Benefit 1 -->
+      <div class="feature-card p-8 rounded-2xl">
+       <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+        <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <path d="M12 14c-3.31 0-6 2.24-6 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div>
+       <h3 id="benefit-1-title" class="mb-4"></h3>
+       <p id="benefit-1-description"></p>
+      </div><!-- Benefit 2 -->
+      <div class="feature-card p-8 rounded-2xl">
+       <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+        <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div>
+       <h3 id="benefit-2-title" class="mb-4"></h3>
+       <p id="benefit-2-description"></p>
+      </div><!-- Benefit 3 -->
+      <div class="feature-card p-8 rounded-2xl">
+       <div class="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+        <svg class="w-8 h-8" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+       </div>
+       <h3 id="benefit-3-title" class="mb-4"></h3>
+       <p id="benefit-3-description"></p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Testimonials Section -->
+   <section id="sobre" class="w-full px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+     <h2 id="testimonials-title" class="text-center mb-4"></h2>
+     <p id="testimonials-subtitle" class="text-center mb-16 opacity-70"></p>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Testimonial 1 -->
+      <div class="testimonial-card p-8 rounded-2xl">
+       <div class="flex mb-4">
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+       </div>
+       <p id="testimonial-1-text" class="mb-6 italic"></p>
+       <div class="border-t pt-4">
+        <p id="testimonial-1-name" class="font-bold"></p>
+        <p id="testimonial-1-role" class="text-sm opacity-70"></p>
+       </div>
+      </div><!-- Testimonial 2 -->
+      <div class="testimonial-card p-8 rounded-2xl">
+       <div class="flex mb-4">
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+       </div>
+       <p id="testimonial-2-text" class="mb-6 italic"></p>
+       <div class="border-t pt-4">
+        <p id="testimonial-2-name" class="font-bold"></p>
+        <p id="testimonial-2-role" class="text-sm opacity-70"></p>
+       </div>
+      </div><!-- Testimonial 3 -->
+      <div class="testimonial-card p-8 rounded-2xl">
+       <div class="flex mb-4">
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+        <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+        </svg>
+       </div>
+       <p id="testimonial-3-text" class="mb-6 italic"></p>
+       <div class="border-t pt-4">
+        <p id="testimonial-3-name" class="font-bold"></p>
+        <p id="testimonial-3-role" class="text-sm opacity-70"></p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="w-full py-8 text-center">
+    <p id="footer-text"></p>
+   </footer>
   </div>
-
-  <header class="hero" id="inicio">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="banner" role="img" aria-label="Banner Carla Fermin Advocacia e Consultoria Jurídica"></div>
-
-        <div class="hero-card">
-          <div class="pill">Atendimento rápido • Humanizado • 100% confidencial</div>
-          <h1>Advocacia e Consultoria Jurídica com clareza, estratégia e segurança.</h1>
-          <p>Orientação objetiva, linguagem simples e condução responsável do seu caso — do primeiro contato até a solução.</p>
-
-          <div class="hero-actions">
-            <a class="btn primary" id="btnWhatsHero" href="#">Falar no WhatsApp</a>
-            <a class="btn" href="#atuacao">Ver áreas de atuação</a>
-          </div>
-
-          <div class="checklist">
-            <div class="check"><span class="dot"></span><div><b>Triagem rápida</b><br/>Você envia o básico e já recebe direção do próximo passo.</div></div>
-            <div class="check"><span class="dot"></span><div><b>Documentos organizados</b><br/>Checklist e orientação para evitar idas e vindas.</div></div>
-            <div class="check"><span class="dot"></span><div><b>Acompanhamento</b><br/>Atualizações claras sobre andamento e prazos.</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <section id="atuacao">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Áreas de atuação</h2>
-          <p class="sub">Ajuste os cards abaixo conforme o foco do escritório.</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="tag">Direito de Sucessões</div>
-          <h3>Inventário e Partilha</h3>
-          <p>Orientação completa para inventário judicial ou extrajudicial, organização de documentos e condução estratégica do procedimento.</p>
-        </div>
-
-        <div class="card">
-          <div class="tag">Direito de Família</div>
-          <h3>Divórcio, Guarda e Alimentos</h3>
-          <p>Atuação com foco em solução, prevenção de conflitos e proteção do que é mais importante para você e sua família.</p>
-        </div>
-
-        <div class="card">
-          <div class="tag">Consultoria</div>
-          <h3>Contratos e Pareceres</h3>
-          <p>Análise e elaboração de documentos com linguagem clara, riscos mapeados e recomendações objetivas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="como-funciona">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Como funciona</h2>
-          <p class="sub">Processo simples para acelerar o atendimento e organizar seu caso.</p>
-        </div>
-      </div>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>1) Primeiro contato</h3>
-          <p>Você chama no WhatsApp e descreve brevemente sua situação. Se preferir, usa o formulário.</p>
-        </div>
-        <div class="card">
-          <h3>2) Triagem e checklist</h3>
-          <p>Você recebe perguntas objetivas e uma lista do que enviar (documentos, datas, nomes, valores).</p>
-        </div>
-        <div class="card">
-          <h3>3) Direcionamento</h3>
-          <p>Com tudo alinhado, você recebe orientação do caminho adequado e próximos passos (prazo, custo, estratégia).</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Dúvidas frequentes</h2>
-          <p class="sub">Respostas rápidas para ajudar você a decidir com segurança.</p>
-        </div>
-      </div>
-
-      <details>
-        <summary>O atendimento pode ser online?</summary>
-        <p>Sim. O primeiro atendimento pode ser online, com envio de documentos digitalizados e orientações por mensagem ou chamada.</p>
-      </details>
-
-      <details>
-        <summary>Quais documentos preciso para inventário?</summary>
-        <p>Depende do caso. Em geral: documentos pessoais, certidões, relação de bens, dívidas e informações dos herdeiros. Você recebe um checklist completo após a triagem.</p>
-      </details>
-
-      <details>
-        <summary>Quanto tempo demora?</summary>
-        <p>Varia conforme a via escolhida (judicial/extrajudicial), existência de consenso e documentação. Na triagem, você recebe uma estimativa realista.</p>
-      </details>
-    </div>
-  </section>
-
-  <section id="contato">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Contato</h2>
-          <p class="sub">Envie sua mensagem e eu retorno o mais rápido possível.</p>
-        </div>
-      </div>
-
-      <div class="contact">
-        <div class="card">
-          <h3>Falar agora</h3>
-          <p class="note" style="margin-top:6px">
-            Clique no WhatsApp e já envie uma mensagem pronta. Você pode alterar o texto antes de enviar.
-          </p>
-
-          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
-            <a class="btn primary" id="btnWhatsContact" href="#">WhatsApp</a>
-            <a class="btn" href="mailto:contato@seudominio.com?subject=Contato%20-%20Carla%20Fermin">E-mail</a>
-          </div>
-
-          <p class="note" style="margin-top:14px">
-            <b>Dica de automação:</b> o formulário pode enviar leads direto para planilha/CRM via Zapier/Make.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Formulário</h3>
-
-          <form id="leadForm">
-            <div class="field">
-              <label for="nome">Nome</label>
-              <input id="nome" name="nome" placeholder="Seu nome" required />
-            </div>
-
-            <div class="field">
-              <label for="whats">WhatsApp</label>
-              <input id="whats" name="whats" placeholder="(DDD) 9XXXX-XXXX" required />
-            </div>
-
-            <div class="field">
-              <label for="assunto">Assunto</label>
-              <input id="assunto" name="assunto" placeholder="Ex.: Inventário / Divórcio / Contrato" />
-            </div>
-
-            <div class="field">
-              <label for="mensagem">Mensagem</label>
-              <textarea id="mensagem" name="mensagem" placeholder="Conte um resumo do seu caso (datas, cidade, situação)."></textarea>
-            </div>
-
-            <button class="btn primary" type="submit">Enviar</button>
-
-            <p class="note" id="formStatus" style="margin-top:10px"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>© <span id="year"></span> Carla Fermin — Advocacia e Consultoria Jurídica</div>
-        <div>Landing page • Política de privacidade (adicione aqui)</div>
-      </div>
-    </div>
-  </footer>
-
-  <a class="float-wa" id="floatWhats" href="#" aria-label="Abrir WhatsApp">
-    <span class="wa-ico">💬</span>
-    <span>WhatsApp</span>
-  </a>
-
   <script>
-    // ========= CONFIGURAÇÕES =========
-    // Troque para o WhatsApp correto (55 + DDD + número)
-    const WHATS_NUMBER = "5500000000000";
-    const WHATS_MESSAGE = "Olá, Carla! Vim pelo site e gostaria de atendimento. Meu caso é sobre: ";
+    const defaultConfig = {
+      background_color: "#556B2F",
+      secondary_surface_color: "#ffffff",
+      text_color: "#2c3e50",
+      primary_action_color: "#6B8E23",
+      secondary_action_color: "#3d4f1f",
+      font_family: "Crimson Text",
+      font_size: 16,
+      logo_text: "Carla Roberta Fermin",
+      phone_number: "(43) 99865-3082",
+      hero_title: "Advocacia Comprometida com Seus Direitos",
+      hero_subtitle: "Experiência jurídica de excelência para proteger seus interesses e garantir justiça",
+      cta_button_text: "Agende uma Consulta",
+      benefits_title: "Áreas de Atuação",
+      benefit_1_title: "Direito de Família",
+      benefit_1_description: "Atendimento especializado em divórcio, guarda de filhos, pensão alimentícia e todas as questões familiares",
+      benefit_2_title: "Inventário",
+      benefit_2_description: "Assessoria completa em inventários judiciais e extrajudiciais, partilha de bens e sucessões",
+      benefit_3_title: "Direito Imobiliário",
+      benefit_3_description: "Consultoria em compra, venda, locação, regularização de imóveis e contratos imobiliários",
+      testimonials_title: "O Que Nossos Clientes Dizem",
+      testimonials_subtitle: "Histórias reais de quem confiou em nosso trabalho",
+      testimonial_1_text: "\"Profissionais extremamente competentes e atenciosos. Resolveram meu caso trabalhista com excelência e rapidez. Recomendo!\"",
+      testimonial_1_name: "Maria Santos",
+      testimonial_1_role: "Empresária",
+      testimonial_2_text: "\"Fui muito bem assessorado em todas as etapas do processo. A transparência e dedicação da equipe fizeram toda a diferença.\"",
+      testimonial_2_name: "Carlos Oliveira",
+      testimonial_2_role: "Engenheiro",
+      testimonial_3_text: "\"Encontrei no escritório não apenas advogados competentes, mas verdadeiros parceiros que lutaram pelos meus direitos.\"",
+      testimonial_3_name: "Ana Paula Lima",
+      testimonial_3_role: "Comerciante",
+      footer_text: "© 2024 Escritório de Advocacia - Todos os direitos reservados - OAB/XX 12345"
+    };
 
-    // Cole a URL do seu webhook (Zapier/Make) para automatizar o formulário
-    const WEBHOOK_URL = "";
-
-    function makeWhatsLink(extraText=""){
-      const text = encodeURIComponent(WHATS_MESSAGE + extraText);
-      return `https://wa.me/${WHATS_NUMBER}?text=${text}`;
+    async function onConfigChange(config) {
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Georgia, serif';
+      const baseSize = config.font_size || defaultConfig.font_size;
+      
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const secondarySurfaceColor = config.secondary_surface_color || defaultConfig.secondary_surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      
+      // Apply gradient background
+      const gradientBg = document.querySelector('.gradient-bg');
+      gradientBg.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${backgroundColor}dd 100%)`;
+      
+      // Apply secondary surface color to cards
+      const cards = document.querySelectorAll('.feature-card');
+      cards.forEach(card => {
+        card.style.backgroundColor = secondarySurfaceColor;
+        card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+      });
+      
+      const testimonialCards = document.querySelectorAll('.testimonial-card');
+      testimonialCards.forEach(card => {
+        card.style.backgroundColor = secondarySurfaceColor;
+        card.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+      });
+      
+      // Apply icon circle backgrounds
+      const iconCircles = document.querySelectorAll('.feature-card > div');
+      iconCircles.forEach(circle => {
+        circle.style.backgroundColor = `${secondaryActionColor}20`;
+        circle.style.color = secondaryActionColor;
+      });
+      
+      // Apply header colors
+      document.getElementById('logo-text').style.color = secondaryActionColor;
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.style.color = textColor;
+      });
+      document.getElementById('phone-display').style.color = secondaryActionColor;
+      document.getElementById('phone-link').style.color = secondaryActionColor;
+      
+      // Apply star colors
+      const stars = document.querySelectorAll('.testimonial-card svg');
+      stars.forEach(star => {
+        star.style.color = primaryActionColor;
+      });
+      
+      // Apply text colors with 3D effect
+      document.getElementById('hero-title').style.color = '#000000';
+      document.getElementById('hero-title').style.textShadow = '2px 2px 0px #333333, 4px 4px 0px rgba(0,0,0,0.3), 6px 6px 8px rgba(0,0,0,0.4)';
+      document.getElementById('hero-subtitle').style.color = '#000000';
+      document.getElementById('hero-subtitle').style.textShadow = '1px 1px 0px #333333, 2px 2px 4px rgba(0,0,0,0.3)';
+      document.getElementById('benefits-title').style.color = textColor;
+      document.getElementById('testimonials-title').style.color = textColor;
+      document.getElementById('testimonials-subtitle').style.color = textColor;
+      document.getElementById('footer-text').style.color = textColor;
+      
+      document.querySelectorAll('.feature-card h3').forEach(h3 => {
+        h3.style.color = textColor;
+      });
+      
+      document.querySelectorAll('.feature-card p').forEach(p => {
+        p.style.color = textColor;
+        p.style.opacity = '0.7';
+      });
+      
+      document.querySelectorAll('.testimonial-card p').forEach(p => {
+        p.style.color = textColor;
+      });
+      
+      document.querySelectorAll('.testimonial-card .border-t').forEach(border => {
+        border.style.borderColor = `${textColor}20`;
+      });
+      
+      // Apply button colors
+      const ctaButton = document.getElementById('cta-button');
+      ctaButton.style.backgroundColor = primaryActionColor;
+      ctaButton.style.color = '#000000';
+      
+      // Apply fonts
+      document.getElementById('logo-text').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      navLinks.forEach(link => {
+        link.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      });
+      document.getElementById('phone-display').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.getElementById('hero-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.getElementById('hero-subtitle').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.getElementById('benefits-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.getElementById('cta-button').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.getElementById('footer-text').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      document.querySelectorAll('.feature-card h3').forEach(h3 => {
+        h3.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      });
+      
+      document.querySelectorAll('.feature-card p').forEach(p => {
+        p.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      });
+      
+      document.getElementById('testimonials-title').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      document.getElementById('testimonials-subtitle').style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      document.querySelectorAll('.testimonial-card p').forEach(p => {
+        p.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      });
+      
+      // Apply font sizes
+      document.getElementById('logo-text').style.fontSize = `${baseSize * 1.5}px`;
+      navLinks.forEach(link => {
+        link.style.fontSize = `${baseSize}px`;
+      });
+      document.getElementById('phone-display').style.fontSize = `${baseSize * 0.875}px`;
+      document.getElementById('hero-title').style.fontSize = `${baseSize * 2.5}px`;
+      document.getElementById('hero-subtitle').style.fontSize = `${baseSize * 1.25}px`;
+      document.getElementById('benefits-title').style.fontSize = `${baseSize * 2}px`;
+      document.getElementById('cta-button').style.fontSize = `${baseSize * 1.125}px`;
+      
+      document.querySelectorAll('.feature-card h3').forEach(h3 => {
+        h3.style.fontSize = `${baseSize * 1.25}px`;
+      });
+      
+      document.querySelectorAll('.feature-card p').forEach(p => {
+        p.style.fontSize = `${baseSize}px`;
+      });
+      
+      document.getElementById('testimonials-title').style.fontSize = `${baseSize * 2}px`;
+      document.getElementById('testimonials-subtitle').style.fontSize = `${baseSize * 1.125}px`;
+      
+      document.querySelectorAll('.testimonial-card p:first-of-type').forEach(p => {
+        p.style.fontSize = `${baseSize}px`;
+      });
+      
+      document.querySelectorAll('.testimonial-card .border-t p').forEach(p => {
+        p.style.fontSize = `${baseSize * 0.875}px`;
+      });
+      
+      document.getElementById('footer-text').style.fontSize = `${baseSize * 0.875}px`;
+      
+      // Update text content
+      document.getElementById('logo-text').textContent = config.logo_text || defaultConfig.logo_text;
+      document.getElementById('phone-display').textContent = config.phone_number || defaultConfig.phone_number;
+      document.getElementById('phone-link').href = `tel:${(config.phone_number || defaultConfig.phone_number).replace(/\D/g, '')}`;
+      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('cta-button').textContent = config.cta_button_text || defaultConfig.cta_button_text;
+      document.getElementById('benefits-title').textContent = config.benefits_title || defaultConfig.benefits_title;
+      document.getElementById('benefit-1-title').textContent = config.benefit_1_title || defaultConfig.benefit_1_title;
+      document.getElementById('benefit-1-description').textContent = config.benefit_1_description || defaultConfig.benefit_1_description;
+      document.getElementById('benefit-2-title').textContent = config.benefit_2_title || defaultConfig.benefit_2_title;
+      document.getElementById('benefit-2-description').textContent = config.benefit_2_description || defaultConfig.benefit_2_description;
+      document.getElementById('benefit-3-title').textContent = config.benefit_3_title || defaultConfig.benefit_3_title;
+      document.getElementById('benefit-3-description').textContent = config.benefit_3_description || defaultConfig.benefit_3_description;
+      document.getElementById('testimonials-title').textContent = config.testimonials_title || defaultConfig.testimonials_title;
+      document.getElementById('testimonials-subtitle').textContent = config.testimonials_subtitle || defaultConfig.testimonials_subtitle;
+      document.getElementById('testimonial-1-text').textContent = config.testimonial_1_text || defaultConfig.testimonial_1_text;
+      document.getElementById('testimonial-1-name').textContent = config.testimonial_1_name || defaultConfig.testimonial_1_name;
+      document.getElementById('testimonial-1-role').textContent = config.testimonial_1_role || defaultConfig.testimonial_1_role;
+      document.getElementById('testimonial-2-text').textContent = config.testimonial_2_text || defaultConfig.testimonial_2_text;
+      document.getElementById('testimonial-2-name').textContent = config.testimonial_2_name || defaultConfig.testimonial_2_name;
+      document.getElementById('testimonial-2-role').textContent = config.testimonial_2_role || defaultConfig.testimonial_2_role;
+      document.getElementById('testimonial-3-text').textContent = config.testimonial_3_text || defaultConfig.testimonial_3_text;
+      document.getElementById('testimonial-3-name').textContent = config.testimonial_3_name || defaultConfig.testimonial_3_name;
+      document.getElementById('testimonial-3-role').textContent = config.testimonial_3_role || defaultConfig.testimonial_3_role;
+      document.getElementById('footer-text').textContent = config.footer_text || defaultConfig.footer_text;
     }
 
-    const ids = ["ctaWhats","btnWhatsHero","btnWhatsContact","floatWhats"];
-    ids.forEach(id=>{
-      const el = document.getElementById(id);
-      el.href = makeWhatsLink("");
-      el.target = "_blank";
-      el.rel = "noopener";
-    });
-
-    const form = document.getElementById("leadForm");
-    const statusEl = document.getElementById("formStatus");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      statusEl.textContent = "Enviando…";
-
-      const payload = {
-        nome: form.nome.value.trim(),
-        whats: form.whats.value.trim(),
-        assunto: form.assunto.value.trim(),
-        mensagem: form.mensagem.value.trim(),
-        origem: "site",
-        timestamp: new Date().toISOString()
-      };
-
-      try{
-        if(!WEBHOOK_URL){
-          statusEl.textContent = "Enviado! Em instantes você será atendido(a).";
-          window.open(makeWhatsLink(payload.assunto || "atendimento"), "_blank", "noopener");
-          form.reset();
-          return;
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_surface_color || defaultConfig.secondary_surface_color,
+            set: (value) => {
+              config.secondary_surface_color = value;
+              window.elementSdk.setConfig({ secondary_surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
         }
+      };
+    }
 
-        const res = await fetch(WEBHOOK_URL, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["logo_text", config.logo_text || defaultConfig.logo_text],
+        ["phone_number", config.phone_number || defaultConfig.phone_number],
+        ["hero_title", config.hero_title || defaultConfig.hero_title],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
+        ["benefits_title", config.benefits_title || defaultConfig.benefits_title],
+        ["benefit_1_title", config.benefit_1_title || defaultConfig.benefit_1_title],
+        ["benefit_1_description", config.benefit_1_description || defaultConfig.benefit_1_description],
+        ["benefit_2_title", config.benefit_2_title || defaultConfig.benefit_2_title],
+        ["benefit_2_description", config.benefit_2_description || defaultConfig.benefit_2_description],
+        ["benefit_3_title", config.benefit_3_title || defaultConfig.benefit_3_title],
+        ["benefit_3_description", config.benefit_3_description || defaultConfig.benefit_3_description],
+        ["testimonials_title", config.testimonials_title || defaultConfig.testimonials_title],
+        ["testimonials_subtitle", config.testimonials_subtitle || defaultConfig.testimonials_subtitle],
+        ["testimonial_1_text", config.testimonial_1_text || defaultConfig.testimonial_1_text],
+        ["testimonial_1_name", config.testimonial_1_name || defaultConfig.testimonial_1_name],
+        ["testimonial_1_role", config.testimonial_1_role || defaultConfig.testimonial_1_role],
+        ["testimonial_2_text", config.testimonial_2_text || defaultConfig.testimonial_2_text],
+        ["testimonial_2_name", config.testimonial_2_name || defaultConfig.testimonial_2_name],
+        ["testimonial_2_role", config.testimonial_2_role || defaultConfig.testimonial_2_role],
+        ["testimonial_3_text", config.testimonial_3_text || defaultConfig.testimonial_3_text],
+        ["testimonial_3_name", config.testimonial_3_name || defaultConfig.testimonial_3_name],
+        ["testimonial_3_role", config.testimonial_3_role || defaultConfig.testimonial_3_role],
+        ["footer_text", config.footer_text || defaultConfig.footer_text]
+      ]);
+    }
 
-        if(!res.ok) throw new Error("Falha no envio");
-        statusEl.textContent = "Enviado com sucesso! Vou retornar o quanto antes.";
-        form.reset();
-      }catch(err){
-        statusEl.textContent = "Não foi possível enviar agora. Clique em WhatsApp para falar direto.";
-      }
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
   </script>
-</body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bdff863e66dda2d',t:'MTc2ODQyMzQ1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
